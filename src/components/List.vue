@@ -13,6 +13,7 @@
     <Bot
       :todos="todos"
       :mycity="mycity"
+      :CheckAll="handleCheckAllChange"
     />
 
   </div>
@@ -61,6 +62,15 @@ export default {
   },
 
   methods: {
+    handleCheckAllChange() {
+      
+        this.mycity.checkedCities = this.mycity.cities
+        this.mycity.checkedCities = []
+        console.log(this.mycity.isIndeterminate)
+       
+       if(this.mycity.isIndeterminate){this.mycity.checkedCities = this.mycity.cities}else{this.mycity.checkedCities = []}
+       this.mycity.isIndeterminate=!this.mycity.isIndeterminate
+    }
   }
 };
 </script>
